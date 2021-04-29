@@ -1,0 +1,26 @@
+﻿@model List<Vidly.Models.Movie>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Movies</h2>
+
+@if (Model.Count == 0)
+{
+    <text>We don't have any movies yet.</text>
+}
+
+<table class="table table-hover">
+    <thead>
+        <tr>Movies</tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.ActionLink(item.Name, "Detail", new { item.Id })</td>
+            </tr>
+        }
+     </tbody>
+</table>
