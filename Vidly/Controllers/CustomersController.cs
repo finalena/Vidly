@@ -17,12 +17,12 @@ namespace Vidly.Controllers
 
         public ActionResult Detail(int Id)
         {
-            var customer = GetCustomers().Where(p => p.Id == Id);
-            if (customer.FirstOrDefault() == null)
+            var customer = GetCustomers().FirstOrDefault(p => p.Id == Id);
+            if (customer == null)
             {
                 return HttpNotFound();
             }
-            return View(customer.FirstOrDefault());
+            return View(customer);
         }
 
         private List<Customer> GetCustomers()

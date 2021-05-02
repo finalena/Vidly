@@ -18,12 +18,12 @@ namespace Vidly.Controllers
 
         public ActionResult Detail(int Id)
         {
-            var movie = GetMovies().Where(p => p.Id == Id);
-            if (movie.FirstOrDefault() == null)
+            var movie = GetMovies().FirstOrDefault(p => p.Id == Id);
+            if (movie == null)
             {
                 return HttpNotFound();
             }
-            return View(movie.FirstOrDefault());
+            return View(movie);
         }
         
         private List<Movie> GetMovies()

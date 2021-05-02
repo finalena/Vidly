@@ -1,6 +1,6 @@
 ﻿@model List<Vidly.Models.Customer>
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Customers";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -10,18 +10,21 @@
 {
     <text>We don't have any customers yet.</text>
 }
-
-<table class="table table-hover">
+else
+{
+<table class="table table-bordered table-hover">
     <thead>
-        <tr>Customers</tr>
+        <tr>
+            <th>Customers</th>
+        </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
         {
             <tr>
-                <td> @Html.ActionLink(item.Name, "Detail", new { item.Id })</td>
+                <td>@item.Name</td>
             </tr>
         }
     </tbody>
 </table>
-
+}
